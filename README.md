@@ -255,18 +255,21 @@ On your GitHub repository:
 
 ## 🏆 도전과제
 
-아래는 포트폴리오 사이트를 사용자 정의하고 Codespaces, CSS, HTML 및 JavaScript를 익힐 수 있는 추가적인 방법 4가지입니다.
+아래 네 가지 방법을 통해 포트폴리오 사이트를 커스텀하고 Codespaces, CSS, HTML 및 JavaScript를 익히세요.
 
-  1. [코드스페이스 사용자 정의하기](#1-customize-your-codespaces)
+  1. [Codespaces 커스텀하기](#1-customize-your-codespaces)
   1. [부드럽게 섹션으로 이동하기](#2-update-to-smooth-scroll-to-a-section)
   1. [책상 사진에 애니메이션 추가하기](#3-animate-desk-photo)
   1. [새로운 섹션 추가하기](#4-add-a-new-section)
 
-### 1. Codespaces 사용자 정의하기
+### 1. Codespaces 커스텀하기
 
-환경에는 미리 설치된 확장 프로그램이 포함되어 있습니다. Codespaces 환경에서 시작할 때 어떤 확장 프로그램을 사용할지 변경할 수 있습니다. 다음과 같이 진행합니다:
 
-1. 파일 .devcontainer/devcontainer.json 을 열고 다음 JSON 요소 extensions 을 찾습니다. **extensions**
+Codespaces 환경에는 확장 프로그램이 미리 설치되어 있습니다.
+Codespaces 환경에서 시작할 때 어떤 확장 프로그램을 사용할지 변경할 수 있습니다. 다음을 따라 진행해보세요:
+
+
+1. 파일 .devcontainer/devcontainer.json 을 열고 다음 JSON 요소 **extensions**을 찾습니다.
 
     ```jsonc
     "extensions": [
@@ -279,30 +282,32 @@ On your GitHub repository:
     ]
     ```
 
-1. `indent-rainbow` 확장 프로그램을 추가해 봅시다.  이를 위해 **extensions** 목록으로 이동하여 다음을 추가합니다:
+1. `indent-rainbow` 확장 프로그램을 추가해 봅시다. 이를 위해 **extensions** 목록으로 이동하여 다음을 추가하세요:
 
     ```jsonc
     "oderwat.indent-rainbow"
     ```
   
-   위에서 수행한 것은 indent-rainbow의 고유 식별자를 추가한 것입니다. 이렇게 함으로써 Codespaces가 시작할 때 이 확장 프로그램이 사전 설치되어야 함을 알 수 있습니다.
+   위에서 indent-rainbow의 고유 식별자를 추가했습니다.
+   Codespaces를 시작할 때 이 확장 프로그램을 사전 설치해야 합니다.
 
-확장 프로그램의 고유 식별자를 찾기:
 
-* 다음과 같은 확장 프로그램의 웹 페이지로 이동합니다. [https://marketplace.visualstudio.com/items?itemName=oderwat.indent-rainbow](https://marketplace.visualstudio.com/items?itemName=oderwat.indent-rainbow&WT.mc_id=dotnet-82024-juyoo)
+확장 프로그램의 고유 식별자를 찾으세요:
+
+* 다음 확장 프로그램의 웹 페이지로 이동합니다. [https://marketplace.visualstudio.com/items?itemName=oderwat.indent-rainbow](https://marketplace.visualstudio.com/items?itemName=oderwat.indent-rainbow&WT.mc_id=dotnet-82024-juyoo)
 * 오른쪽의 **More info** 섹션 아래에서 고유 식별자 필드를 찾습니다.
 
-> 💡 이곳에서 더 배울 수 있습니다. <https://docs.github.com/codespaces/customizing-your-codespace/personalizing-github-codespaces-for-your-account>
+> 💡 여기서 더 배워 보세요. <https://docs.github.com/codespaces/customizing-your-codespace/personalizing-github-codespaces-for-your-account>
 
 
 
 ### 2. 부드럽게 섹션으로 이동하기
 
-사이트 헤더에는 아래의 각 섹션에 대한 링크가 있습니다. 이 링크 중 하나를 클릭하면 페이지가 해당 섹션으로 스크롤됩니다. 스크롤이라기보다는 바로 이동되는 것처럼 보입니다.
+사이트 헤더에는 아래의 각 섹션에 대한 링크가 있습니다. 이 링크 중 하나를 클릭하면 페이지가 해당 섹션으로 스크롤됩니다. 스크롤이라기보단 바로 이동하는 것처럼 보이지 않나요?
 
-사용자가 무슨 일이 일어나고 있는지, 페이지에서 어디로 이동하는지를 알 수 있도록 이것을 더 나은 사용자 경험으로 만들어봅시다.
+스크롤 내리는 속도를 줄여 사용자 경험을 개선해보세요. 이를 통해 사용자는 웹 페이지에서 무슨 일이 일어나고 있는지, 어느 위치로 이동하고 있는지 알 수 있습니다.
 
-1. `/src/BlazorApp/wwwroot/css/app.css`를 엽니다. 우리는 html에 대한 스타일을 추가해야 합니다. 지금 살펴보면 현재 html 및 body 스타일이 함께 설정되어 있습니다. 따라서 다음 CSS 스니펫을 추가하여 html 요소의 스크롤을 설정합시다:
+1. `/src/BlazorApp/wwwroot/css/app.css`를 엽니다. html에 대한 스타일을 추가해야 합니다. 지금 살펴보면 현재 html 및 body 스타일이 함께 설정되어 있습니다. 다음 CSS 스니펫을 추가하여 html 요소의 스크롤을 설정하세요:
 
     ```css
     html {
@@ -310,15 +315,15 @@ On your GitHub repository:
     }
     ```
 
-이미 Codespaces에서 사이트가 실행 중이며 변경 사항이 페이지에 자동으로 다시 로드될 것입니다. 상단 헤더의 링크를 클릭하여 부드러운 스크롤이 작동하는 것을 확인할 수 있습니다.
+Codespaces에서 사이트가 실행 중이며 변경 사항이 페이지에 자동으로 로드될 것입니다. 상단 헤더의 링크를 클릭하여 부드러운 스크롤이 작동하는 것을 확인해보세요.
 
 
 
-### 3. 책상 사진에 애니메이션 추가
+### 3. 책상 사진에 애니메이션 추가하기
 
-애니메이션은 페이지의 요소에 동작을 추가하여 사용자 상호작용을 증가시키고 강조하고자 하는 항목을 주목할 수 있도록 하는 방법입니다. 이번에는 포트폴리오 섹션의 책상 사진에 애니메이션을 추가해 봅시다.
+애니메이션은 페이지 요소에 동작을 추가합니다. 이렇게 함으로써, 사용자의 상호작용이 증가하고 특정 항목을 강조할 수 있습니다. 이번에는 포트폴리오 섹션의 책상 사진에 애니메이션을 추가해 볼까요?
 
-1. Codespaces 내에서 사이트의 스타일시트인 `/src/BlazorApp/wwwroot/css/app.css`을 엽니다. `@keyframes` 정의를 추가하여 왼쪽에서 슬라이드하는 애니메이션 시퀀스를 추가해봅시다:
+1. Codespaces 내에서 사이트의 스타일시트인 `/src/BlazorApp/wwwroot/css/app.css`을 엽니다. `@keyframes` 정의를 추가하여 왼쪽에서 슬라이드하는 애니메이션 시퀀스를 추가하세요 :
 
     ```css
     @keyframes slideInLeft {
@@ -331,7 +336,10 @@ On your GitHub repository:
     }
     ```
 
-1. 이제 `slideInLeft` 애니메이션 시퀀스를 정의했으므로, 책상 사진에 해당 시퀀스로 자신을 애니메이트하도록 지시할 수 있습니다. `/src/BlazorApp/Components/Portfolio.razor`를 열고 `img` 태그를 찾으세요. 인라인 CSS를 사용하여 스타일을 설정합니다. 그 스타일 정의 내에 다음을 추가해봅시다:
+`slideInLeft` 애니메이션 시퀀스를 정의했으므로 책상 사진이 해당 에니메이션 시퀀스로 동작합니다. `/src/BlazorApp/Components/Portfolio.razor`를 열고 `img` 태그를 찾습니다. 인라인 CSS를 사용하여 스타일을 설정합니다. 그 스타일 정의 내에 다음을 추가하세요:
+
+
+1. 이제 `slideInLeft` 애니메이션 시퀀스를 정의했으므로, 책상 사진에 해당 시퀀스로 자신을 동작하도록 지시할 수 있습니다. `/src/BlazorApp/Components/Portfolio.razor`를 열고 `img` 태그를 찾으세요. 인라인 CSS를 사용하여 스타일을 설정합니다. CSS 내에 다음을 추가해봅시다:
 
     ```css
     animation: 1s ease-out 0s 1 slideInLeft;
@@ -343,15 +351,16 @@ On your GitHub repository:
     <img src="@(hero.Src)" style="height: 90%; width: 100%; object-fit: cover; animation: 1s ease-out 0s 1 slideInLeft;" alt="@(hero.Alt)" />
     ```
 
-이미 Codespaces에서 사이트가 실행 중이며 변경 사항이 페이지에 자동으로 다시 로드될 것입니다. 페이지를 위아래로 스크롤하여 책상 사진이 페이지에 슬라이드되는 것을 관찰할 수 있습니다.
+이미 Codespaces에서 사이트가 실행 중이며 변경 사항이 페이지에 자동으로 다시 로드될 것입니다. 페이지를 위아래로 스크롤하여 책상 사진이 페이지에 슬라이드되는 것을 확인하세요.
 
-> 🤩 **추가 사항**: 스크롤 다운 화살표도 애니메이션을 추가할 수 있습니다.
+
+> 🤩 **추가 사항**: 스크롤 다운 화살표에 동작을 추가하세요.
 
 
 
 ### 4. 새로운 섹션 추가하기
 
-포트폴리오 사이트에 몇 가지 기본 섹션을 시작했지만, 여러분은 자신만의 창의적인 자유를 가지고 여러분의 사이트에 추가하고 싶은 새로운 섹션을 추가할 수 있습니다.
+기본 섹션으로 포트폴리오 사이트를 이미 만들었지만, 섹션을 추가해 원하는 대로 커스텀 가능합니다.
 
 예를 들어, 포트폴리오 사이트에 교육 섹션을 추가해 보겠습니다.
 
@@ -386,7 +395,7 @@ On your GitHub repository:
 
 > #### Codespaces 브라우저 앱
 >
-> Edge 또는 Chrome을 사용하는 경우 Codespaces를 시작할 때 Codespaces 앱을 설치할 수 있는 옵션이 표시됩니다. Codespaces 앱을 사용하면 브라우저 외부에서 작업할 수 있도록 Codespaces를 앱 내에서 시작할 수 있습니다. 앱 아이콘과 설치 팝업을 찾아서 시도할 수 있습니다..
+> Edge 또는 Chrome을 사용하는 경우, Codespaces를 시작할 때 Codespaces 앱을 설치할 수 있는 옵션이 표시됩니다. Codespaces 앱을 사용하면 브라우저 외부에서 작업할 수 있습니다.
 >
 > <img src="./images/codespaces-app.png" alt="Codespaces browser app" style="width: 400px;"/>
 
@@ -394,5 +403,4 @@ On your GitHub repository:
 
 ## 🔎 문제를 발견하거나 개선 아이디어가 있나요?
 
-[우리에게 알려주고 이슈를 오픈](/../../issues/new)해서 이 템플릿 저장소를 더 나은 방향으로 만드는 데 도와 줄 수 있습니다!
 
